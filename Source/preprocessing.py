@@ -1,24 +1,60 @@
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder
 
-class DataPreprocessor:
-    def __init__(self, df: pd.DataFrame):
+class Cleaner:
+    def __init__(self, df):
         self.df = df
 
-    def handle_missing(self):
-        """Bo‘sh qiymatlarni to‘ldirish yoki o‘chirish"""
-        self.df = self.df.dropna()
-        return self.df
+    def tozala(self):
+        for col in self.df.columns:
+            if self.df[col].isnull().any():
+                if self.df[col].dtype == 'object':
+                    self.df[col] = self.df[col].fillna(self.df[col].mode()[0])
+                else:
+                    self.df[col] = self.df[col].fillna(self.df[col].mean())
+        return self
 
-    def encode_categorical(self):
-        """Categorical ustunlarni LabelEncoder bilan kodlash"""
-        le = LabelEncoder()
-        for col in self.df.select_dtypes(include=["object"]).columns:
-            self.df[col] = le.fit_transform(self.df[col])
+    def get_df(self):
         return self.df
+    
 
-    def get_features_and_target(self, target="salary"):
-        """X va y ni ajratib olish"""
-        X = self.df.drop(columns=[target])
-        y = self.df[target]
-        return X, y
+    
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+
+class Encoder:
+    def __init__(self, df):
+        self.df = df
+        self.encoder = LabelEncoder()
+
+    def encodla(self):
+        for col in self.df.columns:
+            if self.df[col].dtype == 'object':
+                if self.df[col].nunique() <= 5:
+                    dummies = pd.get_dummies(self.df[col], prefix=col, dtype=int)
+                    self.df = pd.concat([self.df.drop(columns=[col]), dummies], axis=1)
+                else:
+                    self.df[col] = self.encoder.fit_transform(self.df[col])
+        return self
+
+    def get_df(self):
+        return self.df 
+    
+    import pandas as pd
+from sklearn.preprocessing import StandardScaler
+
+class Scaler:
+    def __init__(self, df):
+        self.df = df
+        self.scaler = StandardScaler()
+
+    def scaling_qil(self):
+        numeric_cols = self.df.select_dtypes(include=['int64']).columns
+        self.df[numeric_cols] = pd.DataFrame(
+            self.scaler.fit_transform(self.df[numeric_cols]),
+            columns=numeric_cols,
+            index=self.df.index
+        )
+        return self
+
+    def get_df(self):
+        return self.df
