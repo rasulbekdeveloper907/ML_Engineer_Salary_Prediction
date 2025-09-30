@@ -1,0 +1,9 @@
+2025-09-30 05:33:12,843 - INFO - Fayl muvaffaqiyatli yuklandi: ML_After_Skewness.csv
+2025-09-30 05:33:12,843 - INFO - DataFrame o'lchami: (4144, 14)
+2025-09-30 05:33:12,843 - INFO - DataFrame ustunlari: ['work_year', 'experience_level', 'employment_type', 'job_title', 'salary', 'salary_currency', 'salary_in_usd', 'employee_residence', 'remote_ratio', 'company_location', 'company_size', 'salary_per_hour', 'is_remote', 'is_large_company']
+2025-09-30 05:33:59,390 - INFO - Fayl muvaffaqiyatli yuklandi: ML_After_Skewness.csv
+2025-09-30 05:33:59,390 - INFO - DataFrame o'lchami: (4144, 14)
+2025-09-30 05:33:59,391 - INFO - DataFrame ustunlari: ['work_year', 'experience_level', 'employment_type', 'job_title', 'salary', 'salary_currency', 'salary_in_usd', 'employee_residence', 'remote_ratio', 'company_location', 'company_size', 'salary_per_hour', 'is_remote', 'is_large_company']
+2025-09-30 05:34:57,371 - INFO - Fayl muvaffaqiyatli yuklandi: ML_After_Skewness.csv
+2025-09-30 05:34:57,371 - INFO - DataFrame o'lchami: (4144, 14)
+2025-09-30 05:34:57,371 - INFO - DataFrame ustunlari: ['work_year', 'experience_level', 'employment_type', 'job_title', 'salary', 'salary_currency', 'salary_in_usd', 'employee_residence', 'remote_ratio', 'company_location', 'company_size', 'salary_per_hour', 'is_remote', 'is_large_company']
