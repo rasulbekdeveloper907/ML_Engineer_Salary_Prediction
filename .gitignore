@@ -1,0 +1,42 @@
+# Python cache va bytecode fayllari
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment papkalari
+venv/
+myvenv/
+env/
+.env/
+
+# Jupyter Notebook checkpoint
+.ipynb_checkpoints/
+
+# Log fayllar
+*.log
+
+# Model fayllari
+*.pkl
+*.joblib
+
+# OS fayllari
+.DS_Store
+Thumbs.db
+
+# IDE konfiguratsiya fayllari
+.vscode/
+.idea/
+
+# Data fayllari
+/data/*.csv
+/data/*.xlsx
+
+# Output fayllar
+/output/
+*.html
+*.pdf
+*.png
+*.jpg
+
+# Git fayli
+.gitignore
